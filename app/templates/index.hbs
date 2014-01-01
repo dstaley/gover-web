@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Dashboard</h1>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            <i class="fa fa-tachometer fa-5x"></i>
+          </div>
+          <div class="col-xs-6 text-right">
+              <p class="announcement-heading">{{summary.SUMMARY.0.[MHS 5s]}}</p>
+            <p class="announcement-text">MH/s</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            <i class="fa fa-thumbs-down fa-5x"></i>
+          </div>
+          <div class="col-xs-6 text-right">
+              <p class="announcement-heading">{{truncate-number summary.SUMMARY.0.[Device Rejected%] 4}}</p>
+            <p class="announcement-text">Reject Ratio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th>GPU <i class="fa fa-sort"></i></th>
+            <th>Temperature <i class="fa fa-sort"></i></th>
+            <th>Load <i class="fa fa-sort"></i></th>
+            <th>Rate <i class="fa fa-sort"></i></th>
+            <th>Fan <i class="fa fa-sort"></i></th>
+            <th>Core <i class="fa fa-sort"></i></th>
+            <th>Memory <i class="fa fa-sort"></i></th>
+            <th>Power <i class="fa fa-sort"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each gpu in devs.DEVS}}
+          <tr>
+            <td>{{_view.contentIndex}}</td>
+            <td>{{gpu.Temperature}} &degC</td>
+            <td>{{gpu.[GPU Activity]}}</td>
+            <td>{{gpu.[MHS 5s]}} MH/s</td>
+            <td>{{gpu.[Fan Percent]}}% ({{gpu.[Fan Speed]}} rpm)</td>
+            <td>{{gpu.[GPU Clock]}} Mhz</td>
+            <td>{{gpu.[Memory Clock]}} Mhz</td>
+            <td>{{gpu.[GPU Voltage]}}v</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+<div class="col-lg-12">{{view "righistory" datasets=historicalGPU}}</div>
+</div>

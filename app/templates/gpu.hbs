@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>GPU</h1>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            <i class="fa fa-tachometer fa-5x"></i>
+          </div>
+          <div class="col-xs-6 text-right">
+              <p class="announcement-heading">{{gpu.GPU.0.[MHS 5s]}}</p>
+            <p class="announcement-text">MH/s</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            <i class="fa fa-fire fa-5x"></i>
+          </div>
+          <div class="col-xs-6 text-right">
+              <p class="announcement-heading">{{gpu.GPU.0.Temperature}}&deg</p>
+            <p class="announcement-text">Temperature</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            <i class="fa fa-thumbs-down fa-5x"></i>
+          </div>
+          <div class="col-xs-6 text-right">
+              <p class="announcement-heading">{{truncate-number gpu.GPU.0.[Device Rejected%] 4}}</p>
+            <p class="announcement-text">Reject Ratio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+<div class="col-lg-12">{{view "gpuhistory" datasets=history}}</div>
+</div>
