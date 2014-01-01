@@ -30,7 +30,8 @@ export default Ember.View.extend({
         yaxes: [ { min: 0 }, {
           position: "right"
         } ],
-        legend: { position: "sw" }
+        legend: { position: "sw", backgroundColor: "#46586A" },
+        grid: {color: "#ffffff"}
       });
     }
   }
